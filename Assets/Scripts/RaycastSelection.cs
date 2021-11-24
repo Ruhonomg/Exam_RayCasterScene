@@ -20,47 +20,39 @@ public class RaycastSelection : MonoBehaviour
     }
 
     private void Update()
-    {
+    {     
         if(Input.GetMouseButtonDown(0) && !EventSystem.current.IsPointerOverGameObject())
-        {
-            
+        {   
+
             RaycastHit hit;
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             if(Physics.Raycast(ray,out hit, rayLength, layermask))
-            {
+            {                
         
                 if (hit.transform.name == "Cube_1")
                 {
-                    Debug.Log(hit.collider.name);
                     if(takingAway == false && secondsLeft > 0)
                     {
-                    StartCoroutine(TimerTake());
-                    SceneManager.LoadScene("Scene1 1");
+                        StartCoroutine(TimerTake());
+                        
                     }
+                    Debug.Log(hit.collider.name);
+                    SceneManager.LoadScene("Scene1 1");             
+
                 }
 
                 if (hit.transform.name == "Cube_2")
                 {
                     Debug.Log(hit.collider.name);
-                    if(takingAway == false && secondsLeft > 0)
-                    {
-                    StartCoroutine(TimerTake());
                     SceneManager.LoadScene("Scene1 2");
-            
-                    }
                 }
 
                 if (hit.transform.name == "Sphere_3")
                 {
                     Debug.Log(hit.collider.name);
-                    if(takingAway == false && secondsLeft > 0)
-                    {
-                    StartCoroutine(TimerTake());
                     SceneManager.LoadScene("Scene1 3");
-            
-                    }
-                }
-                
+                    
+                }   
             }
         }
     }
@@ -78,7 +70,6 @@ public class RaycastSelection : MonoBehaviour
         {
              textDisplay.GetComponent<Text>().text = "00:" + secondsLeft;
         }
-        takingAway = false;
+        takingAway = false;       
     }
-
 }
