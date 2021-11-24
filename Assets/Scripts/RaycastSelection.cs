@@ -52,7 +52,8 @@ public class RaycastSelection : MonoBehaviour
                     Debug.Log(hit.collider.name);
                     SceneManager.LoadScene("Scene1 3");
                     
-                }   
+                }
+                
             }
         }
     }
@@ -70,6 +71,10 @@ public class RaycastSelection : MonoBehaviour
         {
              textDisplay.GetComponent<Text>().text = "00:" + secondsLeft;
         }
-        takingAway = false;       
+        takingAway = false;
+
+        
+        
     }
+
 }
